@@ -1,48 +1,20 @@
 <template>
-  <div>
-    <h1>gfhjk</h1>
-    <ul>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li>fghj</li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        <li><h1>fghj</h1></li>
-        </ul>
+  <div class="home-page">
+    
+    
   </div>
 </template>
 
 <script>
 
 export default {
-  components: {
-  },
+  name: "HomePage",
+  async mounted() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+  console.warn({response});
+}
 };
 </script>
 
 <style scoped>
-li{
-    line-height: 7;
-}
 </style>

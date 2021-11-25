@@ -8,7 +8,7 @@ const routes = [
     path: '/',
     name: 'HomePage',
     meta: {
-      title: 'Главная страница',
+      title: 'Список дел',
       layout: 'main-layout'
     },
     component: () => import('@/pages/Home.vue')
