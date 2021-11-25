@@ -8,7 +8,8 @@ const routes = [
     path: '/',
     name: 'HomePage',
     meta: {
-      title: 'Главная страница'
+      title: 'Главная страница',
+      layout: 'main-layout'
     },
     component: () => import('@/pages/Home.vue')
   },
@@ -16,9 +17,28 @@ const routes = [
     path: '/info',
     name: 'InfoPage',
     meta: {
-      title: 'Информация'
+      title: 'Информация',
+      layout: 'main-layout'
     },
     component: () => import('@/pages/Info.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: 'Авторизация',
+      layout: 'auth-layout'
+    },
+    component: () => import('@/pages/LoginPage')
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    meta: {
+      title: 'Регистрация',
+      layout: 'auth-layout'
+    },
+    component: () => import('@/pages/RegistrationPage')
   }
 ]
 

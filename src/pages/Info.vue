@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Nav />
     <InfoCard />
     <FormCard />
   </div>
@@ -10,13 +9,11 @@
 <script>
 import InfoCard from "@/components/InfoCard.vue";
 import FormCard from "@/components/FormCard.vue";
-import Nav from "@/components/NavBar.vue";
 
 export default {
   components: {
     InfoCard,
     FormCard,
-    Nav,
   },
 };
 </script>
