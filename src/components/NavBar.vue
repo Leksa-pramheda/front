@@ -7,7 +7,7 @@
           <router-link class="linkPage" to="/info">Инфо</router-link>
    
       </div>
-      <a class="input nav-link">
+      <a @click= 'onLogoutClicked' class="input nav-link">
         Выйти
       </a>
       <!-- <router-view></router-view> -->
@@ -16,8 +16,20 @@
 </template>
 
 <script>
+import {doLogout} from '@/netClient/dataService'
+
 export default {
   name: "Navbar",
+  methods:{
+    async onLogoutClicked(){
+      try{
+        await doLogout();
+  this.$router.push('/login')
+      } catch (error){
+        console.error({error})
+      }
+    }
+  }
 };
 </script>
 

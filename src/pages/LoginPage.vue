@@ -20,16 +20,35 @@
 </template>
 
 <script>
+import { doLogin } from "@/netClient/dataService";
 
 export default {
   name: 'LoginPage'  ,
+    data: () => ({
+    email: "",
+    login: "",
+    password: "",
+  }),
   async mounted(){
 
   },
   methods:{
-      doLogin(){
+    async onFormSubmit() {
+      try {
+        const token = await doLogin(
+            this.login.trim(),
+            this.password.trim()
+        );
+        console.warn({token});
+        if (token) {
           this.$router.push('/')
-      },
+        }
+      } catch (error) {
+        console.error({ error });
+        throw error;
+      }
+      this.$router.push("/login");
+    },
       redirect(){
           this.$router.push('/registration')
       }
