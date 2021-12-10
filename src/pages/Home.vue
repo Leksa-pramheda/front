@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { fetchTodoList } from "@/netClient/dataService";
+import { fetchTodoList } from "@/netClient/todoService";
 export default {
   name: "HomePage",
 data: () => ({

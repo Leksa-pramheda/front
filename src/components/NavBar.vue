@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {doLogout} from '@/netClient/dataService'
+import {doLogout} from '@/netClient/todoService'
 
 export default {
   name: "Navbar",

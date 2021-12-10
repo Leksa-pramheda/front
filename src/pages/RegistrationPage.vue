@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { doRegister } from "@/netClient/dataService";
+import { doRegister } from "@/netClient/authService";
 
 export default {
   name: "RegistrationPage",
