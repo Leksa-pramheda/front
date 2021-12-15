@@ -48,9 +48,9 @@ import { doRegister } from "@/netClient/authService";
 export default {
   name: "RegistrationPage",
   data: () => ({
-    email: "",
     login: "",
     password: "",
+    email: "",
   }),
   methods: {
     async onFormSubmit() {

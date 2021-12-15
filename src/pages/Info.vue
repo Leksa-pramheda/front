@@ -23,9 +23,9 @@
       <h3>Обратная связь</h3>
     </div>
     <form class="form">
-      <input type="text" id="fio" placeholder="Ваше имя" required />
-      <input type="email" id="email" placeholder="Ваш email" required />
-      <textarea
+      <input class="input-info" type="text" id="fio" placeholder="Ваше имя" required />
+      <input class="input-info" type="email" id="email" placeholder="Ваш email" required />
+      <textarea class="textarea-info"
         type="text"
         placeholder="Ваше сопроводительное письмо"
         required

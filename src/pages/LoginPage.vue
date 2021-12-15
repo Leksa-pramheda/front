@@ -2,13 +2,26 @@
   <div class="login">
       <h1>Вход</h1>
     <form @submit.prevent="onFormSubmit" class="login-form auth-form">
-              <div class="form-field">
+      <div class="form-field">
         <label for="login"></label>
-        <input id="login" type="text" placeholder="Ваш ник" required />
+        <input
+          v-model="login"
+          id="login"
+          type="text"
+          placeholder="Ваш ник"
+          required
+        />
       </div>
       <div class="form-field">
         <label for="password"></label>
-        <input type="password" id="password" placeholder="Ваш пароль" required encrypted />
+        <input
+          v-model="password"
+          type="password"
+          id="password"
+          placeholder="Ваш пароль"
+          required
+          encrypted
+        />
       </div>
       <button id="submitBtn" type="submit">Войти</button>
     <div class="action-link">
@@ -25,7 +38,6 @@ import { doLogin } from "@/netClient/authService";
 export default {
   name: 'LoginPage'  ,
     data: () => ({
-    email: "",
     login: "",
     password: "",
   }),
@@ -47,7 +59,7 @@ export default {
         console.error({ error });
         throw error;
       }
-      this.$router.push("/login");
+      // this.$router.push("/login");
     },
       redirect(){
           this.$router.push('/registration')

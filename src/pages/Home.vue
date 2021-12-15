@@ -1,42 +1,68 @@
 <template>
   <div class="home-page">
-    <section class="create-todo">Add todo</section>
-    
-    <section class="todo-list">
-      <h1>todo list</h1>
-      <!-- <pre>
+    <CreateTodo @todo-created="onTodoCreated" />
+    <div class="separator"><br /></div>
+    <h1>todo list</h1>
+    <!-- <pre>
         {{todoList}}
         </pre> -->
-        
-      <ul>
-        <li v-for="todoItem in todoList" :key="todoItem.id">
+    <ul class="todo-list">
+      <li
+        v-for="todoItem in todoList"
+        :key="todoItem.id"
+        class="todo-item"
+        :class="{ done: todoItem.isCompleted }"
+      >
         <div class="title">
-          {{todoItem.title}}
+          {{ todoItem.title }}
         </div>
-        <div class="checkbox">
-          <input type="checkbox" :checked="todoItem.isCompleted">
-        </div>        
-        </li>
-      </ul>
-    </section>
+        <div class="actions">
+          <input
+            type="checkbox"
+            class="checkbox"
+            :checked="todoItem.isCompleted"
+            @input="onCheckBoxInput(todoItem.id, todoItem.isCompleted)"
+          />
+          <!-- v-model="todoItem.isCompleted" -->
+          <button>X</button>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { fetchTodoList } from "@/netClient/todoService";
+import { fetchTodoList, patchTodo } from "@/netClient/todoService";
+import CreateTodo from "@/components/CreateTodo";
 export default {
-  name: "HomePage",
-data: () => ({
-  todoList: [],
-}),
-  async mounted() {
-    // const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    // console.warn({response});
+  name: "Home",
+  components:{
+    CreateTodo
+  },
+  data: () => ({
+    todoName: "",
+    todoList: [],
+  }),
+  created() {
+    this.fetchTodoList();
   },
   methods: {
+    onTodoCreated(createdTodo){
+    this.todoList.unshift(createdTodo);
+    },
+
     async fetchTodoList() {
       try {
         this.todoList = await fetchTodoList();
+      } catch (error) {
+        console.error({ error });
+      }
+    },
+
+    async onCheckBoxInput(id, isCompleted) {
+      try {
+        await patchTodo({ id, isCompleted: !isCompleted });
+        this.fetchTodoList(); //todo fix this
       } catch (error) {
         console.error({ error });
       }

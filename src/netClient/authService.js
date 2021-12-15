@@ -6,9 +6,9 @@ export async function doRegister(email, login, password){
         console.log('dataservice2')
         console.log('netcl:', http)
         const response = await http.post('/auth/registration', {
-            email,
             login,
             password,
+            email,
         })
         console.log('dataservice3')
         return response.data;
