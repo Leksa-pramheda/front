@@ -1,9 +1,8 @@
 <template>
-    <section class="create-todo">
-      Add todo
-      <input v-model="name" type="text" placeholder="Задача" />
-      <button @click="onCreateTodoClicked">Создать</button>
-    </section>
+  <section class="create-todo">
+    <input v-model="name" type="text" placeholder="Задача" />
+    <button @click="onCreateTodoClicked">Создать</button>
+  </section>
 </template>
 
 <script>
@@ -14,19 +13,19 @@ export default {
   data: () => ({
     name: "",
   }),
-  methods:{
-          async onCreateTodoClicked() {
+  methods: {
+    async onCreateTodoClicked() {
       try {
         const newTodo = await createTodo({ title: this.name });
         if (newTodo) {
-        //   this.todoList.push(newTodo);
-          this.name ='';
+          //   this.todoList.push(newTodo);
+          this.name = "";
         }
-        this.$emit('todo-created',newTodo)
+        this.$emit("todo-created", newTodo);
       } catch (error) {
         console.error({ error });
       }
     },
-  }
+  },
 };
 </script>

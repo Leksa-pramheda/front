@@ -50,6 +50,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const {accessToken} = localStorage
+  console.log(accessToken)
   if (accessToken || to.name === 'login' || to.name === 'registration' ){
     next()
   } else {

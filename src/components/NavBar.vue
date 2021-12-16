@@ -20,7 +20,7 @@ export default {
     async onLogoutClicked() {
       try {
         await doLogout();
-        this.$router.push("/login");
+          this.$router.push("/login");
       } catch (error) {
         console.error({ error });
       }

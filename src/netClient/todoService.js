@@ -46,3 +46,14 @@ export async function createTodo({ title }) {
     throw error;
   }
 }
+
+export async function deleteTodo({ id }) {
+  try {
+    const response = await http.delete("/todos/" + id);
+    console.warn(response)
+    return response?.data ?? {};
+  } catch (error) {
+    console.error({ error });
+    throw error;
+  }
+}

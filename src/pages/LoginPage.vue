@@ -4,7 +4,7 @@
     <form @submit.prevent="onFormSubmit" class="login-form auth-form">
       <div class="form-field">
         <label for="login"></label>
-        <input
+        <input class="input-info"
           v-model="login"
           id="login"
           type="text"
@@ -14,7 +14,7 @@
       </div>
       <div class="form-field">
         <label for="password"></label>
-        <input
+        <input class="input-info"
           v-model="password"
           type="password"
           id="password"
