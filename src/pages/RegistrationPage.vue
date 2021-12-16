@@ -56,9 +56,9 @@ export default {
     async onFormSubmit() {
       try {
         const data = await doRegister(
+            this.email.trim(),
             this.login.trim(),
             this.password.trim(),
-            this.email.trim()
         );
         console.warn({data});
       } catch (error) {
